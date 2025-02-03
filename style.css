@@ -1,0 +1,107 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Manrope:wght@200..800&family=Monoton&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+TZ+Guides&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Tiny5&family=Yuji+Mai&display=swap');
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background: linear-gradient(to top left , #9061BD ,#EB333F );
+    height: 900px;
+}
+
+main {
+
+    width: 70%;
+    margin: 100px auto;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.349);
+    border-radius: 8px;
+    box-shadow: 1px 1px 20px 1px black;
+}
+
+.player-1 {
+    /* border: solid 3px green; */
+    width: 50%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.player-2 {
+    /* border: solid 3px black; */
+    width: 50%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.title{
+    font-size: 30px;
+    font-family: "Roboto Serif", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+
+.score{
+    font-size: 60px;
+    font-weight: 500;
+    color: #e11e55;
+}
+
+.current-container{
+
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e11e55;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 1px;
+    height: 130px;
+    border-radius: 8px;
+}
+
+.current-score{
+    font-size: 30px;
+}
+
+.new-game{
+  
+    width: 8%;
+    background-color: rgba(255, 255, 255, 0.792);
+    padding: 5px;
+    border-radius: 8px;
+    position: relative;
+    bottom: 630px;
+    left: 770px;
+    text-align: center;
+}
+
+img {
+    position: relative;
+    bottom: 540px;
+    left: 800px; 
+}
+
+.roll{
+    width: 8%;
+    background-color: rgba(255, 255, 255, 0.792);
+    padding: 8px;
+    border-radius: 8px;
+    position: relative;
+    bottom: 430px;
+    left: 770px;
+    text-align: center;
+}
+
+.hold{
+    width: 5%;
+    background-color: rgba(255, 255, 255, 0.792);
+    padding: 8px;
+    border-radius: 10px;
+    position: relative;
+    bottom: 430px;
+    left: 790px;
+    text-align: center;
+}
