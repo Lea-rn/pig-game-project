@@ -17,7 +17,7 @@ main {
     height: 600px;
     display: flex;
     flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.349);
+    background-color: rgba(255, 255, 255, 0.249);
     border-radius: 8px;
     box-shadow: 1px 1px 20px 1px black;
 }
@@ -93,6 +93,7 @@ img {
     bottom: 430px;
     left: 770px;
     text-align: center;
+    cursor: pointer;
 }
 
 .hold{
@@ -104,4 +105,23 @@ img {
     bottom: 430px;
     left: 790px;
     text-align: center;
+}
+
+
+
+.active {
+ background-color: rgba(255, 255, 255, 0.47);
+ border-radius: 8px;
+}
+
+.active .title {
+    font-weight: bolder;
+}
+
+.active .score{
+    font-weight: bolder;
+}
+
+.hidden {
+ display: none;
 }
