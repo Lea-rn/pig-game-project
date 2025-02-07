@@ -22,14 +22,14 @@ main {
     box-shadow: 1px 1px 20px 1px black;
 }
 
-.player-1 {
+.player-0 {
     /* border: solid 3px green; */
     width: 50%;
     text-align: center;
     padding-top: 50px;
 }
 
-.player-2 {
+.player-1 {
     /* border: solid 3px black; */
     width: 50%;
     text-align: center;
@@ -76,6 +76,7 @@ main {
     bottom: 630px;
     left: 770px;
     text-align: center;
+    cursor: pointer;
 }
 
 img {
@@ -105,6 +106,7 @@ img {
     bottom: 430px;
     left: 790px;
     text-align: center;
+    cursor: pointer;
 }
 
 
@@ -124,4 +126,9 @@ img {
 
 .hidden {
  display: none;
+}
+
+.winner {
+    background-color: black;
+    color: white;
 }

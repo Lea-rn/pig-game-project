@@ -1,11 +1,16 @@
+"use strict";
+
 let score0 = document.getElementById("score-0");
 let score1 = document.getElementById("score-1");
+// let score1 = document.querySelector("#score-1");
+//// ui ===> user interface
 
 const diceImg = document.querySelector(".dice");
-const roll = document.querySelector(".roll"); ///// boutton
-const player0 = document.querySelector(".player-1")
-const player1 = document.querySelector(".player-2")
-
+//// buttons :
+const roll = document.querySelector(".roll");
+const hold = document.querySelector(".hold");
+const player0 = document.querySelector(".player-0");
+const player1 = document.querySelector(".player-1");
 
 //// element adi ==== .textContent
 ///// input ===== .value
@@ -14,30 +19,60 @@ const player1 = document.querySelector(".player-2")
 ///// start conditions :
 score0.textContent = 0;
 score1.textContent = 0;
-diceImg.classList.add("hidden");
+diceImg.classList.add("hidden"); /// .add , .remove , .toggle
 let compteur = 0;
-let activePlayer = 0 ; //1
+let activePlayer = 0; //1
+const scores = [0, 0]; //// [10,0]
+let isPlaying = true;
+
+function switchPlayer (){
+  compteur = 0;
+  document.getElementById(`current-score-${activePlayer}`).textContent = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0.classList.toggle("active");
+  player1.classList.toggle("active");
+}
+
 
 roll.addEventListener("click", function () {
-  const diceNumber = Math.trunc(Math.random() * 6) + 1; ///1 ====> 6
-  console.log(diceNumber);
-  diceImg.src = `dice-${diceNumber}.png`;
+  if (isPlaying) {
+    const diceNumber = Math.trunc(Math.random() * 6) + 1; ///1 ====> 6   2
+    diceImg.src = `dice-${diceNumber}.png`;
 
-  diceImg.classList.remove("hidden");
+    diceImg.classList.remove("hidden"); //// a3tina num men 1 ==> 6 w bayena el img ...
 
-  if (diceNumber !== 1) {
-    compteur += diceNumber;           
-    document.getElementById(`current-score-${activePlayer}`).textContent = compteur ;
-    // document.getElementById("current-score-0").textContent = compteur ;
-
-  }
-
-  else {
-    compteur = 0 ;
-    document.getElementById(`current-score-${activePlayer}`).textContent = 0 ; 
-    activePlayer = activePlayer === 0 ? 1 : 0 ; 
-     player0.classList.toggle("active")
-     player1.classList.toggle("active")
-
+    if (diceNumber !== 1) {
+      compteur += diceNumber;
+      document.getElementById(`current-score-${activePlayer}`).textContent =
+        compteur;
+      // document.getElementById("current-score-0").textContent = compteur ;
+    } else {
+       switchPlayer()
+    }
   }
 });
+
+hold.addEventListener("click", function () {
+  if (isPlaying) {
+    scores[activePlayer] += compteur;
+    document.getElementById(`score-${activePlayer}`).textContent =
+      scores[activePlayer];
+
+    if (scores[activePlayer] >= 20) {
+      isPlaying = false;
+      document.querySelector(`.player-${activePlayer}`).classList.add("winner");
+      document
+        .querySelector(`.player-${activePlayer}`)
+        .classList.remove("active");
+    }
+    else {
+      switchPlayer()
+    }
+  }
+});
+
+
+///// dice yetna7a all scores == 0 ; player 1 = activeplayer
+
+//// new game ::: 
+
