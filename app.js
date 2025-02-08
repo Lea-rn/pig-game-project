@@ -17,22 +17,39 @@ const player1 = document.querySelector(".player-1");
 ////// taswira ==== .src
 
 ///// start conditions :
-score0.textContent = 0;
-score1.textContent = 0;
-diceImg.classList.add("hidden"); /// .add , .remove , .toggle
-let compteur = 0;
-let activePlayer = 0; //1
-const scores = [0, 0]; //// [10,0]
-let isPlaying = true;
+// score0.textContent = 0;
+// score1.textContent = 0;
+// diceImg.classList.add("hidden"); /// .add , .remove , .toggle
+// let compteur = 0;
+// let activePlayer = 0; //1
+// let scores = [0, 0]; //// [10,0]
+// let isPlaying = true;
+let compteur, activePlayer, scores, isPlaying;
 
-function switchPlayer (){
+function reset() {
+  score0.textContent = 0;
+  score1.textContent = 0;
+  diceImg.classList.add("hidden");
+  compteur = 0;
+  activePlayer = 0;
+  scores = [0, 0];
+  isPlaying = true;
+  player0.classList.add("active");
+  player1.classList.remove("active");
+  player0.classList.remove("winner");
+  player1.classList.remove("winner");
+  document.getElementById(`current-score-0`).textContent = 0;
+  document.getElementById(`current-score-1`).textContent = 0;
+}
+reset();
+
+function switchPlayer() {
   compteur = 0;
   document.getElementById(`current-score-${activePlayer}`).textContent = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   player0.classList.toggle("active");
   player1.classList.toggle("active");
 }
-
 
 roll.addEventListener("click", function () {
   if (isPlaying) {
@@ -47,10 +64,12 @@ roll.addEventListener("click", function () {
         compteur;
       // document.getElementById("current-score-0").textContent = compteur ;
     } else {
-       switchPlayer()
+      switchPlayer();
     }
   }
 });
+
+//// hold button functionnality ::
 
 hold.addEventListener("click", function () {
   if (isPlaying) {
@@ -64,15 +83,12 @@ hold.addEventListener("click", function () {
       document
         .querySelector(`.player-${activePlayer}`)
         .classList.remove("active");
-    }
-    else {
-      switchPlayer()
+    } else {
+      switchPlayer();
     }
   }
 });
 
+//// new game functionnality  :::
 
-///// dice yetna7a all scores == 0 ; player 1 = activeplayer
-
-//// new game ::: 
-
+document.querySelector(".new-game").addEventListener("click", reset);
